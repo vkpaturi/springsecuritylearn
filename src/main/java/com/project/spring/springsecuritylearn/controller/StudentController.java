@@ -26,8 +26,8 @@ public class StudentController {
     }
 
     @GetMapping("/csrf")
-    public CsrfToken getCsrfToken(HttpServletRequest request) {
-        return (CsrfToken) request.getAttribute("_csrf");
+    public String getCsrfToken(HttpServletRequest request) {
+        return (String) request.getAttribute("_csrf");
     }
 
     @PostMapping("/students")
@@ -42,7 +42,7 @@ public class StudentController {
 // The client then sends this token back to the server with every request.
 // The server validates this token to ensure that the request is coming from a legitimate source.
 // CSRF Token does not work on GET requests, only on POST, PUT, DELETE, etc.
-
+//
 // If you hit the URL with GET Method http://localhost:8080/students, you will get the following response:
 // List of Students as response
 // But if you hit the URL with POST Method http://localhost:8080/students, you will get the following response:
